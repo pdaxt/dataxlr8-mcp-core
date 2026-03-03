@@ -1,0 +1,42 @@
+[package]
+name = "dataxlr8-mcp-core"
+version = "0.1.0"
+edition = "2024"
+description = "Shared core library for DataXLR8 Rust MCP servers"
+license = "MIT"
+repository = "https://github.com/pdaxt/dataxlr8-mcp-core"
+
+[dependencies]
+# Database
+sqlx = { version = "0.8", features = [
+    "runtime-tokio",
+    "tls-rustls",
+    "postgres",
+    "sqlite",
+    "migrate",
+    "chrono",
+    "uuid",
+    "json",
+] }
+
+# Async
+tokio = { version = "1", features = ["full"] }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Error handling
+anyhow = "1"
+thiserror = "2"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# Config
+dotenvy = "0.15"
+
+# Types
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
