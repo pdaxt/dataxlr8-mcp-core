@@ -33,7 +33,7 @@ impl std::fmt::Display for ErrorCode {
 
 /// Structured error for MCP tool handlers.
 /// Carries a machine-readable code and optional details.
-#[derive(Debug, Error)]
+#[derive(Debug, Serialize, Error)]
 #[error("[{code}] {message}")]
 pub struct McpError {
     pub code: ErrorCode,

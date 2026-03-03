@@ -15,3 +15,7 @@ pub mod logging;
 pub use config::Config;
 pub use db::Database;
 pub use error::{ErrorCode, McpError, McpResult};
+
+// Re-export commonly used types so downstream crates don't need
+// to add sqlx, chrono, uuid as direct dependencies for basic usage.
+pub use sqlx::PgPool;
