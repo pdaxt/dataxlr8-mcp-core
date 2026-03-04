@@ -74,6 +74,16 @@ impl Database {
         Ok(())
     }
 
+    /// Quick health check — verifies the database is reachable.
+    /// Returns Ok(()) if a simple query succeeds, Err otherwise.
+    pub async fn health_check(&self) -> Result<(), crate::McpError> {
+        sqlx::query("SELECT 1")
+            .execute(&self.pool)
+            .await
+            .map_err(|e| crate::McpError::database(format!("Health check failed: {e}")))?;
+        Ok(())
+    }
+
     /// Close the connection pool gracefully.
     pub async fn close(&self) {
         self.pool.close().await;
