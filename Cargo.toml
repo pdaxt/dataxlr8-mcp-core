@@ -7,6 +7,9 @@ license = "MIT"
 repository = "https://github.com/pdaxt/dataxlr8-mcp-core"
 
 [dependencies]
+# MCP SDK
+rmcp = { version = "0.17", features = ["server"] }
+
 # Database
 sqlx = { version = "0.8", features = [
     "runtime-tokio",

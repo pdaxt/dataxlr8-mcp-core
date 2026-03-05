@@ -5,12 +5,15 @@
 //! - Standard error types with MCP error codes
 //! - Configuration loading from environment variables
 //! - Tracing/logging initialization
-//! - Common response builders
+//! - Shared MCP tool helpers (schema builders, result constructors, arg extractors)
+//! - Common data types (PersonData, CompanyData, EmailVerification)
 
 pub mod config;
 pub mod db;
 pub mod error;
 pub mod logging;
+pub mod mcp;
+pub mod types;
 
 pub use config::Config;
 pub use db::Database;
